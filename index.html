@@ -49,7 +49,7 @@
                         <p class="fs-8">Compila il form per richiedere un preventivo per i nostri servizi di sviluppo.</p>
                     </div>
                     <!--Inizio del Form-->
-                    <form>
+                    <form class="needs-validation" novalidate="">
                         <div class="mb-3">
                             <label for="firstName" class="form-label">Nome</label>
                             <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
@@ -69,22 +69,39 @@
                             <div class="invalid-feedback">
                               E' richiesta una mail valida.
                             </div>
+                        </div>
+                        <!--Select con i 3 tipi di lavoro richiesti-->
+                        <div class="mb-3">
+                            <label for="country" class="form-label">Tipo di lavoro</label>
+                                <select class="form-select" id="country" required="">
+                                    <option value="">Seleziona il tipo di lavoro</option>
+                                    <option>Backed Development</option>
+                                    <option>Frontend Development</option>
+                                    <option>Project Analysis</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                Seleziona un lavoro valido
+                                </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Note</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                        <!--Text area dove inserire il codice promozionale-->
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">Codice Promozionale <span class="text-body-secondary">(Opzionale)</span></label>
+                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="">
                           </div>
                         <div class="mb-3 form-check">
                           <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                          <label class="form-check-label" for="exampleCheck1">Accetto la privacy Policy</label>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <!--Bottone per calcolo preventivo-->
+                        <button type="submit" class="btn btn-primary">Calcola preventivo</button>
                       </form>
             </div>
-
-
-
-
-
-
-
         </div>
+        
 
 
 

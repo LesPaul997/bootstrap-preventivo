@@ -22,6 +22,7 @@
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
+              <!--Menu-->
               <div class="collapse navbar-collapse justify-content-md-end" id="navbarNav">
                 <ul class="navbar-nav">
                   <li class="nav-item">
@@ -35,13 +36,55 @@
                   </li>
                 </ul>
               </div>
+              <!--/Menu-->
             </div>
           </nav>
           <!--Fine intestazione pagina-->
     </header>
     <main>
+        <div class="container-fluid px-5">
+            <div class="row">
+                    <div class="column">
+                        <p class="fs-2 mb-0">Richiesta Preventivo</p>
+                        <p class="fs-8">Compila il form per richiedere un preventivo per i nostri servizi di sviluppo.</p>
+                    </div>
+                    <!--Inizio del Form-->
+                    <form>
+                        <div class="mb-3">
+                            <label for="firstName" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+                            <div class="invalid-feedback">
+                              È richiesto un nome valido.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="lastName" class="form-label">Cognome</label>
+                            <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+                            <div class="invalid-feedback">
+                              È richiesto un cognome valido.
+                            </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="">
+                            <div class="invalid-feedback">
+                              E' richiesta una mail valida.
+                            </div>
+                          </div>
+                        <div class="mb-3 form-check">
+                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </form>
+            </div>
 
 
+
+
+
+
+
+        </div>
 
 
 

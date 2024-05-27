@@ -73,9 +73,9 @@
                         </div>
                         <!--Select con i 3 tipi di lavoro richiesti-->
                         <div class="mb-3">
-                            <label for="country" class="form-label">Tipo di lavoro</label>
-                                <select class="form-select" id="country" required="">
-                                    <option value="">Seleziona il tipo di lavoro</option>
+                            <label for="selectWork" class="form-label">Tipo di lavoro</label>
+                                <select class="form-select" id="selectWork" required="">
+                                    <option selected value="">Seleziona il tipo di lavoro</option>
                                     <option id="Backend">Backend Development</option>
                                     <option id="Frontend">Frontend Development</option>
                                     <option id="Analysis">Project Analysis</option>
@@ -90,18 +90,29 @@
                         </div>
                         <!--Text area dove inserire il codice promozionale-->
                         <div class="mb-3">
-                            <label for="formGroupExampleInput" class="form-label">Codice Promozionale <span class="text-body-secondary">(Opzionale)</span></label>
-                            <input type="password" class="form-control" id="formGroupExampleInput" placeholder="">
+                            <label for="code" class="form-label">Codice Promozionale <span class="text-body-secondary">(Opzionale)</span></label>
+                            <input type="password" class="form-control" id="code" placeholder="">
                           </div>
+                          <!--Messaggio di errore o conferma nascosto-->
+                          <div id="warningCode" class="form-text fw-medium d-none">
+                          </div>
+                          <!--Fine messaggio-->
                         <div class="mb-3 form-check">
                           <input type="checkbox" class="form-check-input" id="exampleCheck1">
                           <label class="form-check-label" for="exampleCheck1">Accetto la privacy Policy</label>
                         </div>
+                        <!--Messaggio di errore check-->
+                        <div id="warningCheck" class="form-text text-danger fw-medium d-none">Devi accettare le
+                          condizioni della privacy per proseguire</div>
                         <!--Bottone per calcolo preventivo-->
                         <button type="submit" class="btn btn-primary ms-5 mt-4" id="btn">Calcola preventivo
                         </button>
                         <!--PREZZO CALCOLATO-->
-                        <div class="col-7 mx-auto" id="result"></div>
+                        <div id="price" class="mx-5 px-4 d-none">
+                          <p class="fw-bold fs-4 m-0">Prezzo finale</p>
+                          <p class="text-center"><span id="int" class="fw-bold fs-4"></span><span id="decimal"
+                                  class="fs-5"></span></p>
+                      </div>
                         <!--/PREZZO CALCOLATO-->
                       </form>
 

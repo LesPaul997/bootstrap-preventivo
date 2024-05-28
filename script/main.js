@@ -10,7 +10,10 @@ const warningCodeText = document.getElementById('warningCode');
 const userWork = document.getElementById('selectWork');
 const codeImput = document.getElementById('code');
 const warningCheckText = document.getElementById('warningCheck');
+const checkElement = document.getElementById('checkbox');
 const priceText = document.getElementById('price');
+const intSpan = document.getElementById('int');
+const decimalSpan = document.getElementById('decimal');
 
 //Elementi della traccia
 
@@ -35,13 +38,13 @@ const userJob = {
     "Analisi Progettuale": 33.60
 };
 
-addOptions(userJob);
+/* addOptions(userJob); */
 
 
 
 
 // COSE DA FARE ALL'INVIO DEL FORM
-form.AddEventListener("submit", function (event) {
+form.addEventListener("submit", function (event) {
     // Impedisco il  ricaricamento della pagina
     event.preventDefault();
 
@@ -106,4 +109,16 @@ function extractDecimal(num, n) {
     const decimal = ((num - parseInt(num)).toFixed(n)).toString();
     //viene restituita solo la parte decimale
     return decimal.split(".")[1];
+};
+
+function addOptions(obj) {
+    //variabile stringa che conterrà il codice HTML man mano aggiunto
+    let htmlString = "";
+    //iterazione per ogni elemento dell'array, formato dalle chiavi dell'oggetto passato come parametro alla funzione
+    Object.keys(obj).forEach(function (elem) {
+        //alla stringa codice viene aggiunta una option con classe e testo
+        htmlString += `<option value="${elem}">${elem}</option>`;
+    });
+    //all'elemento select viene aggiunta la stringa con le option, prima del tag di chiusura
+    selectInput.insertAdjacentHTML("beforeend", htmlString);
 };

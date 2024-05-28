@@ -72,14 +72,13 @@
                         </div>
                         <!--Select con i 3 tipi di lavoro richiesti-->
                         <div class="mb-3">
-                            <label for="selectWork" class="form-label">Tipo di lavoro</label>
-                                <select class="form-select" id="selectWork" required="">
-                                    <option selected value="">Seleziona il tipo di lavoro</option>
-                                    <option id="Backend">Backend Development</option>
-                                    <option id="Frontend">Frontend Development</option>
-                                    <option id="Analysis">Project Analysis</option>
-                                </select>
-                        </div>
+                          <label for="select" class="form-label fw-medium">Tipo di lavoro</label>
+                          <!-- elemento select della versione bonus, spopolato di default -->
+                          <select id="select" class="form-select" aria-label="Default select example" required>
+                              <option selected value="">Seleziona il tipo di lavoro</option>
+                          </select>
+                          <!-- elemento select della versione bonus -->
+                      </div>
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Note</label>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
@@ -106,6 +105,7 @@
                         <!--PREZZO CALCOLATO-->
                         <div id="price" class="mx-5 px-4 d-none">
                           <!-- <p class="fw-bold fs-4 m-0">Prezzo finale</p> -->
+                          <p class="fw-bold fs-4 m-0 text-center">Prezzo finale</p>
                           <p class="text-center"><span id="int" class="fw-bold fs-4"></span><span id="decimal"
                              class="fs-5"></span></p>
                       </div>
@@ -133,8 +133,10 @@
     </main>
 
     <!--Footer-->
-    <footer class="footer py-3 my-4 bg-dark" data-bs-theme="dark">
-        <p class="text-center text-body-secondary">© 2024 - Tutti i diritti riservati</p>
+    <footer>
+      <div class="mt-5 pt-4 bg-dark" style="height: 80px">
+          <p class=" text-center text-light">©2024 - Tutti i diritti riservati</p>
+      </div>
     </footer>
       
 

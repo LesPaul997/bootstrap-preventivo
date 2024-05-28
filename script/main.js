@@ -7,7 +7,7 @@ const userName = document.getElementById('firstName');
 const userSurname = document.getElementById('lastName');
 const userEmail = document.getElementById('email');
 const warningCodeText = document.getElementById('warningCode');
-const userWork = document.getElementById('selectWork');
+const selectInput = document.getElementById('select');
 const codeImput = document.getElementById('code');
 const warningCheckText = document.getElementById('warningCheck');
 const checkElement = document.getElementById('checkbox');
@@ -20,7 +20,6 @@ const decimalSpan = document.getElementById('decimal');
 
 //Codici sconto
 const code = ["YHDNU32", "JANJC63", "PWKCN25", "SJDPO96", "POCIE24"];
-let promotionalCode = "";
 
 //Ore di lavoro e sconto
 const jobHours = 10;
@@ -70,7 +69,7 @@ form.addEventListener("submit", function (event) {
 
 function calculatePrice() {
     //Si estrae il valore dalla select
-    selectedJob = userWork.value;
+    selectedJob = selectInput.value;
 
     //Chiave associata alla variabile
     hourPrice = userJob[selectedJob];
@@ -79,7 +78,7 @@ function calculatePrice() {
     fullPrice = hourPrice * jobHours;
 
     //Viene letto il codice se inserito
-    promotionalCode = codeImput.value;
+    userCode = codeImput.value;
 
     //Verifichiamo se il codice inserito è valido
     if (userCode !== "") {
@@ -132,5 +131,5 @@ function addOptions(obj) {
         htmlString += `<option value="${elem}">${elem}</option>`;
     });
     //all'elemento select viene aggiunta la stringa con le option, prima del tag di chiusura
-    /* userWork.insertAdjacentHTML("beforeend", htmlString); */
+    selectInput.insertAdjacentHTML("beforeend", htmlString);
 };

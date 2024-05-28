@@ -11,6 +11,7 @@ const userWork = document.getElementById('selectWork');
 const codeImput = document.getElementById('code');
 const warningCheckText = document.getElementById('warningCheck');
 const checkElement = document.getElementById('checkbox');
+const buttonInput = document.getElementById('submit');
 const priceText = document.getElementById('price');
 const intSpan = document.getElementById('int');
 const decimalSpan = document.getElementById('decimal');
@@ -21,9 +22,11 @@ const decimalSpan = document.getElementById('decimal');
 const code = ["YHDNU32", "JANJC63", "PWKCN25", "SJDPO96", "POCIE24"];
 let promotionalCode = "";
 
+//Ore di lavoro e sconto
 const jobHours = 10;
 const discount = 25;
 
+//Variabili prezzo finale
 let userCode = "";
 let selectedJob = "";
 let hourPrice = 0;
@@ -31,14 +34,15 @@ let fullPrice = 0;
 let intPrice = 0;
 let decimalPrice = 0;
 
-//Qui elenco le tre selezioni 
+//Qui elenco delle tre selezioni 
 const userJob = {
     "Sviluppo Backend": 20.50,
     "Sviluppo Frontend": 15.30,
     "Analisi Progettuale": 33.60
 };
 
-/* addOptions(userJob); */
+//Funzione per il popolamento dei valori
+addOptions(userJob);
 
 
 
@@ -48,15 +52,17 @@ form.addEventListener("submit", function (event) {
     // Impedisco il  ricaricamento della pagina
     event.preventDefault();
 
+    //Messaggi di errori
     warningCodeText.classList.add("d-none");
     warningCheckText.classList.add('d-none');
 
      //Controllo check privacy
      if (checkElement.checked) {
-        //se la property checked è true, allora si richiama la funzione di calcolo
+        //se la proprietà checked è true, allora si richiama la funzione di calcolo
         calculatePrice();
     }
     else {
+        //Messaggio di errore nel DOM
         warningCheckText.classList.remove('d-none')
     };
 
@@ -66,6 +72,7 @@ function calculatePrice() {
     //Si estrae il valore dalla select
     selectedJob = userWork.value;
 
+    //Chiave associata alla variabile
     hourPrice = userJob[selectedJob];
 
     //Calcolo del prezzo finale
@@ -82,18 +89,22 @@ function calculatePrice() {
             //Prezzo scontato
             fullPrice -= fullPrice * (discount / 100);
 
+            //Messaggio di conferma
             warningCodeText.classList.remove("text-danger");
             warningCodeText.classList.add("text-success");
             warningCodeText.innerText = "Il codice inserito è valido";
             warningCodeText.classList.remove("d-none");
 
         }   else {
+
+            //Messaggio di errore
             warningCodeText.classList.remove("text-success");
             warningCodeText.classList.add("text-danger");
             warningCodeText.innerText = "Il codice inserito non è valido";
             warningCodeText.classList.remove("d-none");
         };
     };
+
     //Prezzo intero
     intPrice = parseInt(fullPrice);
 
@@ -105,6 +116,7 @@ function calculatePrice() {
     priceText.classList.remove('d-none');
 };
 
+//Estrazione della parte decimale del prezzo
 function extractDecimal(num, n) {
     const decimal = ((num - parseInt(num)).toFixed(n)).toString();
     //viene restituita solo la parte decimale
@@ -120,5 +132,5 @@ function addOptions(obj) {
         htmlString += `<option value="${elem}">${elem}</option>`;
     });
     //all'elemento select viene aggiunta la stringa con le option, prima del tag di chiusura
-    selectInput.insertAdjacentHTML("beforeend", htmlString);
+    /* userWork.insertAdjacentHTML("beforeend", htmlString); */
 };

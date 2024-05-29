@@ -107,6 +107,9 @@ function calculatePrice() {
     //Prezzo intero
     intPrice = parseInt(fullPrice);
 
+    //Parte decimale a 2 cifre
+    decimalPrice = fullPrice.toFixed(2).split(".")[1];
+
     //Inserimento del prezzo intero all'interno del dom
     intSpan.innerText = `€ ${intPrice}`;
     decimalSpan.innerText = `,${decimalPrice}`;
@@ -115,21 +118,19 @@ function calculatePrice() {
     priceText.classList.remove('d-none');
 };
 
-//Estrazione della parte decimale del prezzo
-function extractDecimal(num, n) {
-    const decimal = ((num - parseInt(num)).toFixed(n)).toString();
-    //viene restituita solo la parte decimale
-    return decimal.split(".")[1];
-};
 
 function addOptions(obj) {
-    //variabile stringa che conterrà il codice HTML man mano aggiunto
-    let htmlString = "";
-    //iterazione per ogni elemento dell'array, formato dalle chiavi dell'oggetto passato come parametro alla funzione
-    Object.keys(obj).forEach(function (elem) {
+
+        //variabile stringa che conterrà il codice HTML
+        let htmlString = "";
+
+        //iterazione per ogni elemento dell'array, formato dalle chiavi dell'oggetto passato come parametro alla funzione
+        Object.keys(obj).forEach(function (elem) {
+
         //alla stringa codice viene aggiunta una option con classe e testo
         htmlString += `<option value="${elem}">${elem}</option>`;
     });
-    //all'elemento select viene aggiunta la stringa con le option, prima del tag di chiusura
+    
+        //Qui vengono aggiunte le 
     selectInput.insertAdjacentHTML("beforeend", htmlString);
 };
